@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-almond: #F4EFE5;
+  --color-ivory: #FAF8F2;
+  --color-teal: #6F9290;
+  --color-deep: #345B59;
+  --color-charcoal: #292D2C;
+  --color-beige: #DCD2C3;
+  --font-serif: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Jost", system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--color-almond);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--color-teal); color: var(--color-ivory); }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+.eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+  padding: 1rem 2rem; font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; font-weight: 500;
+  transition: all .4s cubic-bezier(.2,.7,.2,1);
+}
+.btn-primary { background: var(--color-teal); color: var(--color-ivory); }
+.btn-primary:hover { background: var(--color-deep); }
+.btn-outline { border: 1px solid currentColor; }
+.btn-outline:hover { background: var(--color-charcoal); color: var(--color-ivory); border-color: var(--color-charcoal); }
+.btn-light { background: var(--color-ivory); color: var(--color-charcoal); }
+.btn-light:hover { background: var(--color-teal); color: var(--color-ivory); }
+
+.link-underline { position: relative; }
+.link-underline::after {
+  content: ""; position: absolute; left: 0; bottom: -4px; height: 1px; width: 100%;
+  background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .45s ease;
+}
+.link-underline:hover::after, .link-underline.active::after { transform: scaleX(1); transform-origin: left; }
+
+.grain::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .06; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+input[type="range"] { accent-color: var(--color-teal); }
